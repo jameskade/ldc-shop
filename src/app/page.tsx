@@ -76,6 +76,9 @@ export default async function Home() {
         ALTER TABLE products ADD COLUMN IF NOT EXISTS compare_at_price DECIMAL(10, 2);
         ALTER TABLE products ADD COLUMN IF NOT EXISTS is_hot BOOLEAN DEFAULT FALSE;
         ALTER TABLE orders ADD COLUMN IF NOT EXISTS payee TEXT;
+        ALTER TABLE orders ADD COLUMN IF NOT EXISTS points_used INTEGER DEFAULT 0;
+        ALTER TABLE orders ADD COLUMN IF NOT EXISTS quantity INTEGER DEFAULT 1 NOT NULL;
+        ALTER TABLE orders ADD COLUMN IF NOT EXISTS current_payment_id TEXT;
         ALTER TABLE cards ADD COLUMN IF NOT EXISTS reserved_order_id TEXT;
         ALTER TABLE cards ADD COLUMN IF NOT EXISTS reserved_at TIMESTAMP;
         ALTER TABLE cards ALTER COLUMN is_used SET DEFAULT FALSE;
